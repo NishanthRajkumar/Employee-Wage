@@ -21,6 +21,9 @@ internal class EmployeeWage
     int monthlyWage;
     int totalHoursWorked;
 
+    // Random object declared
+    Random random = new Random();
+
     // Constructor
     public EmployeeWage()
     {
@@ -40,7 +43,6 @@ internal class EmployeeWage
     // Gets attendance of employee using Random
     private int GetAttendance()
     {
-        Random random = new Random();
         int checkAttendance = random.Next(0, 2);
         if (checkAttendance == IS_PRESENT)
             return IS_PRESENT;
@@ -53,7 +55,6 @@ internal class EmployeeWage
     {
         int dailyWage = 0;
         int dailyHours = 0;
-        Random random = new Random();
         int empCheck = random.Next(0, 2);
         switch (empCheck)
         {
