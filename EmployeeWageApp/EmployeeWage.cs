@@ -79,9 +79,7 @@ internal class EmployeeWage
         for (int i = 0; i < WORKING_DAYS_PER_MONTH; i++)
             totalDaysWorked += GetAttendance();
         for (int j = 0; j < totalDaysWorked; j++)
-        {
             monthlyWage += GetDailyWage();
-        }
     }
 
     // Until total hours reaches 100 or total days = 20
