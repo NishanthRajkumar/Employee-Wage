@@ -22,7 +22,7 @@ internal class EmployeeWage
     int totalHoursWorked;
 
     // Random object declared
-    Random random = new Random();
+    static Random random = new Random();
 
     // Constructor
     public EmployeeWage()
