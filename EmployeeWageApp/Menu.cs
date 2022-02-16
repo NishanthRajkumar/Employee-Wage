@@ -77,7 +77,7 @@ internal class Menu
     /// <summary>
     /// Gets the name of the company.
     /// </summary>
-    /// <returns>returns a valid name string</returns>
+    /// <returns>A valid name as string</returns>
     private static string GetCompanyName()
     {
         string input;

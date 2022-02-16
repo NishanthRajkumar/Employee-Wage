@@ -8,7 +8,7 @@ internal class CompanyList : ICompanyWage
 {
     /// <summary>
     /// The companies are stored in a Dictionary.
-    /// Stores company name as key and coresponding wages as value
+    /// <para>Stores company name as key and coresponding wages as value.</para>
     /// </summary>
     private readonly Dictionary<string, EmployeeWage> companies;
 
@@ -22,6 +22,11 @@ internal class CompanyList : ICompanyWage
 
     /// <summary>
     /// Adds a company with default wage parameter values.
+    /// <para>Default parameter:
+    /// <list type="bullet">Rate per hour = 20</list>
+    /// <list type="bullet">Working days per month = 20</list>
+    /// <list type="bullet">Hours per month = 100</list>
+    /// </para>
     /// </summary>//
     /// <param name="companyName">Name of the company.</param>
     public void AddCompany(string companyName)

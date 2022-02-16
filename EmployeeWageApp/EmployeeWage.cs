@@ -64,7 +64,7 @@ internal class EmployeeWage
     }
 
     /// <summary>
-    /// Resets this instance.
+    /// Resets the wage related values.
     /// </summary>
     private void Reset()
     {
@@ -77,7 +77,7 @@ internal class EmployeeWage
     /// <summary>
     /// Gets the attendance using Random.
     /// </summary>
-    /// <returns>Return 0 for absent, 1 for present.</returns>
+    /// <returns>0 for absent, 1 for present.</returns>
     private static int GetAttendance()
     {
         return random.Next(0, 2);
@@ -114,9 +114,9 @@ internal class EmployeeWage
 
     /// <summary>
     /// Meets the wage condition.
-    /// Days Worked == WORKING_DAYS_PER_MONTH
+    /// <para>Days Worked == WORKING_DAYS_PER_MONTH</para>
     /// OR
-    /// Hours Worked == HOURS_PER_MONTH
+    /// <para>Hours Worked == HOURS_PER_MONTH</para>
     /// </summary>
     public void MeetWageCondition()
     {
@@ -138,13 +138,7 @@ internal class EmployeeWage
         Console.WriteLine("Monthly Wage: " + monthlyWage);
     }
 
-    /// <summary>
-    /// Converts to string.
-    /// Has been overridden and optimised for this class
-    /// </summary>
-    /// <returns>
-    /// A <see cref="System.String" /> with Total wage & Daily wage info.
-    /// </returns>
+    // Has been overridden and optimised for this class.
     public override string ToString()
     {
         return $"Total Wage: {TotalWage}; Daily Wage: {DailWage}";
