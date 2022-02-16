@@ -3,7 +3,8 @@
 /// <summary>
 /// This class handles collection of multiple companies
 /// </summary>
-internal class CompanyList
+/// <seealso cref="EmployeeWageApp.CompanyWageInterface" />
+internal class CompanyList : CompanyWageInterface
 {
     /// <summary>
     /// The companies are stored in a Dictionary.
@@ -26,7 +27,7 @@ internal class CompanyList
     public void AddCompany(string companyName)
     {
         companies.Add(companyName, new EmployeeWage(companyName));
-        companies[companyName].MeetWageCondition();
+        ComputeWage(companyName);
     }
 
     /// <summary>
@@ -39,6 +40,11 @@ internal class CompanyList
     public void AddCompany(string companyName, int ratePerHour, int maxWorkingDays, int maxHoursPerMonth)
     {
         companies.Add(companyName, new EmployeeWage(companyName, ratePerHour, maxWorkingDays, maxHoursPerMonth));
+        ComputeWage(companyName);
+    }
+
+    public void ComputeWage(string companyName)
+    {
         companies[companyName].MeetWageCondition();
     }
 
