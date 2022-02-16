@@ -3,8 +3,8 @@
 /// <summary>
 /// This class handles collection of multiple companies
 /// </summary>
-/// <seealso cref="EmployeeWageApp.CompanyWageInterface" />
-internal class CompanyList : CompanyWageInterface
+/// <seealso cref="EmployeeWageApp.ICompanyWage" />
+internal class CompanyList : ICompanyWage
 {
     /// <summary>
     /// The companies are stored in a Dictionary.
@@ -43,6 +43,10 @@ internal class CompanyList : CompanyWageInterface
         ComputeWage(companyName);
     }
 
+    /// <summary>
+    /// Computes the wage for a company.
+    /// </summary>
+    /// <param name="companyName">Name of the company.</param>
     public void ComputeWage(string companyName)
     {
         companies[companyName].MeetWageCondition();
@@ -55,5 +59,18 @@ internal class CompanyList : CompanyWageInterface
     {
         foreach (var company in companies.Values)
             Console.WriteLine("\nCompany: " + company.Company + "\n" + company.ToString() + "\n");
+    }
+
+    /// <summary>
+    /// Gets the total wage for a company.
+    /// </summary>
+    public void GetTotalWage()
+    {
+        Console.Write("Enter name of Company: ");
+        string companyName = Console.ReadLine();
+        if (companies.ContainsKey(companyName))
+            Console.WriteLine("Total Wage: " + companies[(companyName)].TotalWage);
+        else
+            Console.WriteLine("Company does not exist!");
     }
 }
