@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EmployeeWageApp;
 
-namespace EmployeeWageApp;
-
-
+// This class handles collection of multiple companies
 internal class CompanyList
 {
     // Declaring class attribute of type Dictionary
-    private Dictionary<string, EmployeeWage> companies;
+    private readonly Dictionary<string, EmployeeWage> companies;
 
     // Initialise the dictionary
     public CompanyList()

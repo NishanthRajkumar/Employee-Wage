@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EmployeeWageApp;
+﻿namespace EmployeeWageApp;
 
 internal class EmployeeWage
 {
     // Constant variables declared here
     private const int IS_FULL_TIME = 1;
     private const int IS_PART_TIME = 0;
-    private const int IS_PRESENT = 1;
-    private const int IS_ABSENT = 0;
     private readonly int RATE_PER_HOUR = 20;
     private readonly int WORKING_DAYS_PER_MONTH = 20;
     private readonly int HOURS_PER_MONTH = 100;
@@ -23,7 +15,7 @@ internal class EmployeeWage
     private int totalHoursWorked;
 
     // Random object declared
-    private static Random random = new Random();
+    private static readonly Random random = new();
 
     // Default Constructor
     public EmployeeWage()
@@ -50,33 +42,22 @@ internal class EmployeeWage
     }
 
     // Gets attendance of employee using Random
-    private int GetAttendance()
+    private static int GetAttendance()
     {
-        int checkAttendance = random.Next(0, 2);
-        if (checkAttendance == IS_PRESENT)
-            return IS_PRESENT;
-        else
-            return IS_ABSENT;
+        return random.Next(0, 2);
     }
 
     // Calculates Daily Wage
     private int GetDailyWage()
     {
-        int dailyWage = 0;
-        int dailyHours = 0;
+        int dailyWage;
         int empCheck = random.Next(0, 2);
-        switch (empCheck)
+        int dailyHours = empCheck switch
         {
-            case IS_FULL_TIME:
-                dailyHours = 8;
-                break;
-            case IS_PART_TIME:
-                dailyHours = 4;
-                break;
-            default:
-                dailyHours = 0;
-                break;
-        }
+            IS_FULL_TIME => 8,
+            IS_PART_TIME => 4,
+            _ => 0,
+        };
         totalHoursWorked += dailyHours;
         dailyWage = dailyHours * RATE_PER_HOUR;
         return dailyWage;
